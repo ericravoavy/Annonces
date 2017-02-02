@@ -18,12 +18,6 @@ class AdvertisementsController < ApplicationController
   end
 
   def update
-    @advertisement = Advertisement.find(params[:id])
-    puts "--------------"
-    puts @advertisement
-    puts "--------------"
-    puts adver_params
-    puts "--------------"
     @advertisement.update adver_params
     redirect_to advertisement_path(params[:id])
   end
