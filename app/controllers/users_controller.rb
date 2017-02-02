@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   def check
 	puts @current_user.inspect
        @current_user = User.where(name: params[:name], password: params[:password]).first
+       puts "--------"
        puts @current_user.inspect
+       puts "--------"
       if @user
           session[:user_id] = @current_user.id
           redirect_to profil_path, success: 'Connexion réussie'
