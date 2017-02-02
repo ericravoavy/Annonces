@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-            <%= @advertisement.created_at.strftime('Annonce du %A %d %B %Y') %>
+            <%= t @advertisement.created_at.strftime('Annonce du %A %d %B %Y') %>
         </div>
         <div class="card-block">
             <h4 class="card-title"><%= @advertisement.title %></h4>
