@@ -15,6 +15,14 @@ class UsersController < ApplicationController
   end
 
   def show
+       @current_user = User.where(name: params[:name], password: params[:password]).first
+      if @user
+          session[:user_id] = @current_user.id
+          redirect_to profil_path, success: 'Connexion réussie'
+      else
+          session[:user_id] = nil
+          redirect_to new_user_path, danger: 'Identifiants incorrects'
+      end
   end
 
   private

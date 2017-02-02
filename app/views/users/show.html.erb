@@ -1,5 +1,5 @@
 <div class="container">
-
+    <%= form_tag "/users", method: :post do %>
       <form class="form-signin">
         <h2 class="form-signin-heading">Merci de vous identifier</h2>
         <div class="form-group">
@@ -14,5 +14,5 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">S'identifier</button>
         </div>
       </form>
-
+<% end %>
     </div> <!-- /container -->
