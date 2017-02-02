@@ -1,5 +1,6 @@
 <div class="container">
     <%= form_for :advertisements do |f| %>
+        <%= f.hidden_field :user_id, session[:user_id] %>
       <form class="form-signin">
         <h2 class="form-signin-heading">Déposer une annonce</h2>
         <div class="form-group">
