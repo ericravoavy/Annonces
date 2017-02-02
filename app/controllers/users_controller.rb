@@ -22,6 +22,9 @@ class UsersController < ApplicationController
        puts "--------"
       if @user
           session[:user_id] = @current_user.id
+          puts "--------"
+          puts session[:user_id]
+          puts "--------"
           redirect_to root_path, success: 'Connexion réussie'
       else
           session[:user_id] = nil
