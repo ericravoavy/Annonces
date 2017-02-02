@@ -18,8 +18,13 @@ class AdvertisementsController < ApplicationController
   end
 
   def update
-    @advertisement.update adver_params
-    redirect_to advertisement_path(params[:id])
+    @advertisement = Advertisement.find(params[:id])
+    if @advertisement.update adver_params
+      redirect_to advertisement_path(params[:id])
+    else
+      flash[:info] = "Échec de la publication"
+      redirect_to root_path
+    end
   end
 
   def destroy
