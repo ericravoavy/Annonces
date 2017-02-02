@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def login
+	puts @current_user.inspect
        @current_user = User.where(name: params[:name], password: params[:password]).first
       if @user
           session[:user_id] = @current_user.id
