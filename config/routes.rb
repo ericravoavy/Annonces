@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'advertisements/show'
 
+  get 'advertisements/new'
+
   get 'advertisements/create'
 
   get 'advertisements/update'
