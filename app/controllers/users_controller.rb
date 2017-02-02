@@ -14,8 +14,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def check
        @current_user = User.where(name: params[:name], password: params[:password]).first
+       puts @current_user.inspect
       if @user
           session[:user_id] = @current_user.id
           redirect_to profil_path, success: 'Connexion réussie'
