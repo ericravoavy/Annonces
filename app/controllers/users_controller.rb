@@ -28,6 +28,12 @@ class UsersController < ApplicationController
       end
   end
 
+  def destroy
+      session[:user_id] = nil
+      flash[:info] = "Vous êtes déconnecté, à bientôt"
+      redirect_to root_path
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :password)
