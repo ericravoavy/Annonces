@@ -1,21 +1,21 @@
 <div class="container">
-    <% form_for @advertisement %>
+    <%= form_for :advertisements do |f| %>
       <form class="form-signin">
         <h2 class="form-signin-heading">Déposer une annonce</h2>
         <div class="form-group">
-            <label for="inputTitle">Titre de votre annonce</label>
-            <input type="text" id="inputTitle" class="form-control" required autofocus>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
         </div>
         <div class="form-group">
-            <label for="texteareaContent">Description de votre annonce</label>
-            <textarea class="form-control" id="texteareaContent" rows="3"></textarea>
+            <%= f.label :content %>
+            <%= f.text_field :content %>
         </div>
         <div class="form-group">
-            <label for="inputPrice">Prix</label>
-            <input type="text" id="inputPrice" class="form-control" required>
+            <%= f.label :price %>
+            <%= f.text_field :price %>
         </div>
         <div class="form-group">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Soumettre l'annonce</button>
+            <%= f.submit %>
         </div>
       </form>
     <% end %>
