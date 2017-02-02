@@ -14,6 +14,9 @@ class AdvertisementsController < ApplicationController
   end
 
   def update
+    @advertisement = Advertisement.find(params[:id])
+    @advertisement.update
+    redtirect_to advertisement_path(params[:id])
   end
 
   def destroy
