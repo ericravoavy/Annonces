@@ -18,7 +18,7 @@
               <div class="card-footer text-muted">
                 <%= pluralize(advertisement.price, "euro") %>
                 <% if !advertisement.published %> 
-                  <%= link_to "Publier l'annonce", edit_advertisement_path(advertisement), class: 'btn btn-primary float-left' %>
+                  <%= link_to "Publier l'annonce", edit_advertisement_path(advertisement), class: 'btn btn-primary float-right' %>
                 <% end %>
               </div>
             </div>
