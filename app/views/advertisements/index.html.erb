@@ -19,7 +19,7 @@
                 <%= pluralize(advertisement.price, "euro") %>
                 <% if !advertisement.published %> 
                   <%= form_for(advertisement) do |f| %>
-                    <% f.hidden_field_tag :published, "true" %>
+                    <% f.hidden_field :published, "true" %>
                     <%= f.submit "Publier l'annonce", class: 'btn btn-primary float-right' %>
                   <% end %>
                 <% end %>
