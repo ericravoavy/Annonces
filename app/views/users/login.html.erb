@@ -2,6 +2,7 @@
     <%= form_tag "/users/login", method: :post do %>
       <form class="form-signin">
         <h2 class="form-signin-heading">Merci de vous identifier</h2>
+        <p><%= link_to "Pas encore de compte, rendez vous ici", users_login_path %></p>
         <div class="form-group">
             <label for="inputName">Votre Nom</label>
             <input type="text" name="name" id="inputName" class="form-control" required autofocus>
