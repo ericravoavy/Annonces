@@ -20,7 +20,7 @@ class UsersController < ApplicationController
        puts "--------"
        puts @current_user.inspect
        puts "--------"
-      if @user
+      if @current_user
           session[:user_id] = @current_user.id
           puts "--------"
           puts session[:user_id]
