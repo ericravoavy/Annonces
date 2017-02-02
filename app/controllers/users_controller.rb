@@ -33,6 +33,9 @@ class UsersController < ApplicationController
 
   def destroy
       session[:user_id] = nil
+      if !session[:admin].nil?
+        session[:admin] = nil
+      end
       flash[:info] = "Vous êtes déconnecté, à bientôt"
       redirect_to root_path
   end

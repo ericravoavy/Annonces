@@ -25,7 +25,7 @@
           <% end %>
           </li>
         </ul>
-        <% if session[:admin] %>
+        <% if !session[:admin].nil? %>
           <span class="navbar-text">
             Vous êtes connecté en tant qu'Administrateur
           </span>
