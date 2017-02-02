@@ -17,9 +17,6 @@
               </div>
               <div class="card-footer text-muted">
                 <%= pluralize(advertisement.price, "euro") %>
-                <% if !session[:admin].nil? %>
-                  <%= link_to_if !advertisement.published, "Publier", { controller: "advertisement", action: "patch" }, class: 'btn btn-success' %>
-                <% end %>
               </div>
             </div>
           <% end %>
