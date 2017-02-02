@@ -10,13 +10,14 @@
                 <p class="card-text"><%= advertisement.content %></p>
                 <%= link_to "Voir l'annonce",  advertisement_path(advertisement), class: "card-link" %>
                 <% if !session[:admin].nil? %>
-                  <%= link_to "Editer l'annonce", edit_advertisement_path(advertisement) %>
-                  <%= link_to "Detruire l'annonce", advertisement_path(advertisement), method: :delete, data: { confirm: 'Etes-vous sur ?' } %>
+                  <%= link_to "Editer l'annonce", edit_advertisement_path(advertisement), class: 'btn btn-default' %>
+                  <%= link_to "Detruire l'annonce", advertisement_path(advertisement), method: :delete, data: { confirm: 'Etes-vous sur ?' }, class: 'btn btn-danger' %>
                 <% end %>
                 
               </div>
               <div class="card-footer text-muted">
-                <%= pluralize(advertisement.price, "euro") %> 
+                <%= pluralize(advertisement.price, "euro") %>
+                <%= link_to "Publier l'annonce", edit_advertisement_path(advertisement), class: 'btn btn-primary' %>
               </div>
             </div>
           <% end %>
