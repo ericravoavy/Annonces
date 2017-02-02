@@ -1,17 +1,16 @@
-<div class="card text-center">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-block">
-    <h4 class="card-title"><%= @advertisement.title %></h4>
-    <p class="card-text"><%= @advertisement.content %></p>
-    <p class="card-text">Posté par <%= @advertisement.user.name %></p>
-    <a href="<%= advertisements_path %>" class="btn btn-primary">Retour</a>
-  </div>
-  <div class="card-footer text-muted">
-    <%= pluralize(@advertisement.price, "euro") %>
-  </div>
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            <%= advertisement.created_at.strftime('Annonce du %A %d %B %Y') %>
+        </div>
+        <div class="card-block">
+            <h4 class="card-title"><%= @advertisement.title %></h4>
+            <p class="card-text"><%= @advertisement.content %></p>
+            <p class="card-text">Posté par <%= @advertisement.user.name %></p>
+            <a href="<%= advertisements_path %>" class="btn btn-primary">Retour</a>
+        </div>
+        <div class="card-footer text-muted">
+            <%= pluralize(@advertisement.price, "euro") %>
+        </div>
+    </div>
 </div>
-    
-    
-    
