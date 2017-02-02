@@ -13,16 +13,17 @@ class AdvertisementsController < ApplicationController
 
   def new
     @advertisement = Advertisement.new
-    if @advertisement.save adver_params
+  end
+  
+  def create
+    @advertisement = Advertisement.new adver_params
+     if @advertisement.save
       flash[:info] = "Votre annonce a été enregistrée, elle sera prochainement validée par l'adminitrateur"
       redirect_to advertisement_path(@advertisement)
     else
       flash[:info] = "Échec de l'enregistrement de votre annonce"
       render :new
     end
-  end
-  
-  def create
   end
 
   def update
