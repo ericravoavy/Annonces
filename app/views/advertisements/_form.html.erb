@@ -19,19 +19,10 @@
     <%= f.text_area :content, class: "form-control" %>
   </div>
   <% if session[:user_id] && session[:admin] %>
-    <div class="field">
-      <%= f.label :state %>
-      <%= f.check_box :state %>
-    </div>
-
+    
     <div class="field">
       <%= f.label :published %>
       <%= f.check_box :published %>
-    </div>
-
-    <div class="field">
-      <%= f.label :waiting %>
-      <%= f.check_box :waiting %>
     </div>
 
     <div class="actions">
