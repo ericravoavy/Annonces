@@ -17,18 +17,14 @@ class UsersController < ApplicationController
   def check
 	puts @current_user.inspect
        @current_user = User.where(name: params[:name], password: params[:password]).first
-       puts "--------"
-       puts @current_user.inspect
-       puts "--------"
       if @current_user
           session[:user_id] = @current_user.id
-          puts "--------"
-          puts session[:user_id]
-          puts "--------"
-          redirect_to root_path, success: 'Connexion réussie'
+          flash[:info] = "Bienvenue #{@current_user.name} !"
+          redirect_to root_path
       else
           session[:user_id] = nil
-          redirect_to new_user_path, danger: 'Identifiants incorrects'
+          flash[:info] = "Échec de la connexion"
+          redirect_to new_user_path
       end
   end
 
