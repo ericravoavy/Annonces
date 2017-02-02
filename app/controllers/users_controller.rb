@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def check
+	puts @current_user.inspect
        @current_user = User.where(name: params[:name], password: params[:password]).first
        puts @current_user.inspect
       if @user
