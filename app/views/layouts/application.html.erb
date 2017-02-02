@@ -18,10 +18,11 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
+          <% if session[:user_id].nil? %>
             <a class="nav-link" href="#">S'identifier / S'enregistrer</a>
-          </li>
-          <li>
+          <% else %>
             <a class="nav-link" href="#">Se déconnecter</a>
+          <% end %>
           </li>
         </ul>
       </div>
