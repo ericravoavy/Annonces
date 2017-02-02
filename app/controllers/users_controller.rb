@@ -19,6 +19,9 @@ class UsersController < ApplicationController
        @current_user = User.where(name: params[:name], password: params[:password]).first
       if @current_user
           session[:user_id] = @current_user.id
+          if @current_user.role == "admin"
+            session[:admin] = true
+          end
           flash[:info] = "Bienvenue #{@current_user.name} !"
           redirect_to root_path
       else
