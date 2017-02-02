@@ -15,7 +15,7 @@ class AdvertisementsController < ApplicationController
 
   def update
     @advertisement = Advertisement.find(params[:id])
-    @advertisement.update
+    @advertisement.update adver_params
     redtirect_to advertisement_path(params[:id])
   end
 
@@ -23,5 +23,10 @@ class AdvertisementsController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+  def adver_params
+    params.require(:advertisement).permit(:title, :content, :published)
   end
 end
