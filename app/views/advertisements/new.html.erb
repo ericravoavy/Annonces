@@ -1,7 +1,6 @@
 <div class="container">
  <div><%= flash[:info] %></div>
     <%= form_for :advertisements do |f| %>
-        <%= f.hidden_field session[:user_id] %>
       <form class="form-signin">
         <h2 class="form-signin-heading">Déposer une annonce</h2>
         <div class="form-group">
@@ -15,6 +14,13 @@
         <div class="form-group">
             <%= f.label :price %>
             <%= f.text_field :price %>
+        </div>
+        <div class="form-group">
+            <%= f.check_box("published") %>
+        </div>
+        <div class="form-group">
+            <%= f.label :user_id %>
+            <%= f.text_field :udser_id %>
         </div>
         <div class="form-group">
             <%= f.submit %>
