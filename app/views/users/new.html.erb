@@ -1,5 +1,5 @@
 <div class="container">
-<%= form_for @user do |f| %>
+<%= form_for @user, url: users_new_path do |f| %>
  
   <% if @user.errors.any? %>
     <div id="error_explanation">
