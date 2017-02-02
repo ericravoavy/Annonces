@@ -8,7 +8,7 @@
                 <h4 class="card-title"><%= advertisement.title %></h4>
                 <h6 class="card-subtitle mb-2 text-muted"><%= advertisement.created_at.strftime('Posté le %d/%m/%Y') %> par </h6>
                 <p class="card-text"><%= advertisement.content %></p>
-                <%= link_to "Voir l'annonce", advertisement, class: "card-link" %>
+                <%= link_to "Voir l'annonce",  advertisements_show_path, class: "card-link" %>
                 
                   <%= link_to "Editer l'annonce", edit_advertisement_path(advertisement) %>
                   <%= link_to "Detruire l'annonce", advertisement, method: :delete, data: { confirm: 'Etes-vous sur ?' } %>
