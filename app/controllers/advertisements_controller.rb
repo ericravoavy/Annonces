@@ -12,6 +12,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def new
+    @advertisement = Advertisement.new
   end
   
   def create
