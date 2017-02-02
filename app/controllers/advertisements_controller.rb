@@ -1,6 +1,6 @@
 class AdvertisementsController < ApplicationController
   def index
-    @advertisements = Advertisement.all.where(published: "1")
+    @advertisements = Advertisement.all.where(published: true)
   end
 
   def show
