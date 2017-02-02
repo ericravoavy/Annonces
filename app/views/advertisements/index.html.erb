@@ -18,7 +18,7 @@
               <div class="card-footer text-muted">
                 <%= pluralize(advertisement.price, "euro") %>
                 <% if !advertisement.published %> 
-                  <%= form_for(advertisement) do |f| %>
+                  <%= form_for @advertisement do |f| %>
                     <% f.hidden_field :title, advertisement.title %>
                     <% f.hidden_field :content, advertisement.content %>
                     <% f.hidden_field :user_id, advertisement.user.id %>
