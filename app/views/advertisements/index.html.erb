@@ -6,13 +6,13 @@
             <div class="card" style="margin: 10px;">
               <div class="card-block">
                 <h4 class="card-title"><%= advertisement.title %></h4>
-                <h6 class="card-subtitle mb-2 text-muted"><%= advertisement.created_at.strftime('Posté le %d/%m/%Y') %> par <!-- <%= advertisement.user.email %> --></h6>
+                <h6 class="card-subtitle mb-2 text-muted"><%= advertisement.created_at.strftime('Posté le %d/%m/%Y') %> par </h6>
                 <p class="card-text"><%= advertisement.content %></p>
                 <%= link_to "Voir l'annonce", advertisement, class: "card-link" %>
-                <% if current_user && current_user.role == 'admin' %>
+                
                   <%= link_to "Editer l'annonce", edit_advertisement_path(advertisement) %>
                   <%= link_to "Detruire l'annonce", advertisement, method: :delete, data: { confirm: 'Etes-vous sur ?' } %>
-                <% end %>
+                
               </div>
               <div class="card-footer text-muted">
                 <%= pluralize(advertisement.price, "euro") %> 
