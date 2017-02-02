@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-            Annonce postée le <%= @advertisement.created_at, :format => "%A %d %B %Y", :locale => 'fr' %>
+             Annonce postée le <%= l(@advertisement.created_at, format:  "%A %d %B %Y") %>
         </div>
         <div class="card-block">
             <h4 class="card-title"><%= @advertisement.title %></h4>
