@@ -22,7 +22,7 @@ class UsersController < ApplicationController
        puts "--------"
       if @user
           session[:user_id] = @current_user.id
-          redirect_to profil_path, success: 'Connexion réussie'
+          redirect_to root_path, success: 'Connexion réussie'
       else
           session[:user_id] = nil
           redirect_to new_user_path, danger: 'Identifiants incorrects'
