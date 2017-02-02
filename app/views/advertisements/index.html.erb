@@ -19,10 +19,10 @@
                 <%= pluralize(advertisement.price, "euro") %>
                 <% if !advertisement.published %> 
                   <%= form_for advertisement do |f| %>
-                    <% f.hidden_field :title, advertisement.title %>
-                    <% f.hidden_field :content, advertisement.content %>
-                    <% f.hidden_field :user_id, advertisement.user_id %>
-                    <% f.hidden_field :published, published: true  %>
+                    <% f.hidden_field :title, value => params[:advertisement.title] %>
+                    <% f.hidden_field :content, value => params[:advertisement.content] %>
+                    <% f.hidden_field :user_id, value => params[:advertisement.user_id] %>
+                    <% f.hidden_field :published, value => params[:advertisement.published] %>
                     <%= f.submit "Publier l'annonce", class: 'btn btn-primary float-right' %>
                   <% end %>
                 <% end %>
