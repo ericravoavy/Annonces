@@ -16,9 +16,7 @@
             <%= f.text_field :price %>
         </div>
         <div class="form-group">
-            <%= f.check_box("published") %>
-        </div>
-        <div class="form-group">
+            <%= f.hidden_field :published, value: false %>
             <%= f.hidden_field :user_id, value: session[:user_id] %>
         </div>
         <div class="form-group">
