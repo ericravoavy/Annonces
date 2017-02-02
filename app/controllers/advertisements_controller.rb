@@ -1,6 +1,10 @@
 class AdvertisementsController < ApplicationController
   def index
-    @advertisements = Advertisement.all.where(published: true)
+    if session[:admin]
+      @advertisements = Advertisement.all
+    else
+      @advertisements = Advertisement.all.where(published: true) 
+    end
   end
 
   def show
