@@ -32,7 +32,7 @@
           <div><%= pluralize(advertisement.price, "euro") %></div>
             <% if !session[:admin].nil? && !advertisement.published %>
               <div>
-                <%= form_tag "/advertisement/#{advertisement.id}", method: "patch" do %>
+                <%= form_tag "/advertisements/#{advertisement.id}", method: "patch" do %>
                   <input type="hidden" name="title" value="<%= advertisement.title %>"/>
                   <input type="hidden" name="content" value="<%= advertisement.content %>"/>
                   <input type="hidden" name="price" value="<%= advertisement.price %>"/>
