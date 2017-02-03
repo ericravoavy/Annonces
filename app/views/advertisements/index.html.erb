@@ -7,9 +7,7 @@
       <h1 class="display-3">Aucune annonce trouvée</h1>
       <p class="lead">Inscrivez-vous et publiez-en une !</p>
     <% end %>
-    <% if !session[:user_id].nil? %>
-      <%= link_to 'Poster une nouvelle annonce', new_advertisement_path, class: 'btn btn-primary' %>
-    <% end %>
+    <%= link_to 'Poster une nouvelle annonce', new_advertisement_path, class: 'btn btn-primary' %>
   </div>
 </div>
 <div class="container" style="width:90%;" >
