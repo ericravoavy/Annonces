@@ -1,27 +1,33 @@
-<div class="container">
- <div><%= flash[:info] %></div>
-    <%= form_for :advertisement, url: advertisements_path do |f| %>
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Editer une annonce</h2>
-        <div class="form-group">
-            <%= f.label :title %>
-            <%= f.text_field :title %>
-        </div>
-        <div class="form-group">
-            <%= f.label :content %>
-            <%= f.text_field :content %>
-        </div>
-        <div class="form-group">
-            <%= f.label :price %>
-            <%= f.text_field :price %>
-        </div>
-        <div class="form-group">
-            <%= f.hidden_field :published, value: false %>
-            <%= f.hidden_field :user_id, value: session[:user_id] %>
-        </div>
-        <div class="form-group">
-            <%= f.submit %>
-        </div>
-      </form>
-    <% end %>
+<% if session[:user_id] != advertisement.user_id %>
+    <div class="container">
+        <div class="alert alert-danger">
+        Vous ne pouvez pas éditer une annonce qui ne vous appartient pas ! Désolé !</div>
+    </div>
+<% else %>
+    <div class="container">
+        <%= form_for :advertisement, url: advertisements_path do |f| %>
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Editer une annonce</h2>
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :content %>
+                <%= f.text_field :content, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :price %>
+                <%= f.text_field :price, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.hidden_field :published, value: false %>
+                <%= f.hidden_field :user_id, value: session[:user_id] %>
+            </div>
+            <div class="form-group">
+                <%= f.submit "Editer l'annonce", class: "btn btn-lg btn-primary btn-block" %>
+            </div>
+        </form>
+        <% end %>
     </div> <!-- /container -->
+<% end %>
