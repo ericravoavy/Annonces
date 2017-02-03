@@ -19,7 +19,7 @@
         <div class="card-footer text-muted">
           <div><%= pluralize(advertisement.price, "euro") %></div>
         </div>
-        <div class="card-footer bg-success">
+        <div class="card-footer <% if !advertisement.published %> bg-danger <% else %> bg-primary <% end %>">
             <% if !session[:admin].nil? %>
               <div class="text-center">
               <% if !advertisement.published %>
