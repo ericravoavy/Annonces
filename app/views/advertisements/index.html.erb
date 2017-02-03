@@ -30,6 +30,9 @@
         </div>
         <div class="card-footer text-muted">
           <%= pluralize(advertisement.price, "euro") %>
+          <% if !session[:admin].nil? && !advertisement.published %>
+            <%= link_to "Publier l'annonce", advertisement_path(advertisement, published: true), method: :patch, data: { confirm: 'Etes-vous sur ?' }, class: 'btn btn-primary' %>
+          <% end %>
         </div>
       </div>
     <% end %>
