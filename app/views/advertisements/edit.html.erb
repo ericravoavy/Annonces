@@ -5,7 +5,7 @@
     </div>
 <% else %>
     <div class="container">
-        <%= form_for :advertisement, url: edit_advertisement_path do |f| %>
+        <%= form_for :advertisement, url: edit_advertisement_path, method: :patch do |f| %>
         <form class="form-signin">
             <h2 class="form-signin-heading">Editer une annonce</h2>
             <div class="form-group">
