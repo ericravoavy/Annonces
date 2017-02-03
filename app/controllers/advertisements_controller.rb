@@ -36,6 +36,10 @@ class AdvertisementsController < ApplicationController
   end
 
   def destroy
+    @advertisement = Advertisement.find(params[:id])
+    @advertisement.destroy
+    flash[:info] = "Annonce supprimée"
+    redirect_to root_path
   end
 
   def edit
