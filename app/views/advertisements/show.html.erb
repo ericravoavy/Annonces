@@ -14,7 +14,7 @@
             <%= pluralize(@advertisement.price, "euro") %>
         </div>
         <% if !session[:admin].nil? %>
-          <div class="card-footer <% if !advertisement.published %> bg-danger <% else %> bg-default <% end %>">
+          <div class="card-footer <% if !@advertisement.published %> bg-danger <% else %> bg-default <% end %>">
               <div class="text-center">
               <% if !@advertisement.published %>
                 <%= form_tag "/advertisements/#{@advertisement.id}", method: "patch" do %>
