@@ -34,7 +34,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def publish
-    if params[:published] 
+    if params[:published] == true
       flash[:info] = "L'annonce est maintenant publiée"
     else
       flash[:info] = "L'annonce est maintenant hors ligne"
