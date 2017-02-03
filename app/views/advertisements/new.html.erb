@@ -1,24 +1,26 @@
 <div class="container">
-    <%= form_tag "/advertisements", method: :post do %>
-    <input type="hidden" name="published" id="inputtitle" class="form-control" value="false">
-    <input type="hidden" name="user_id" id="inputtitle" class="form-control" value="<%= session[:user_id]%>">
+    <%= form_for :advertisement, url: advertisements_path do |f| %>
       <form class="form-signin">
-        <h2 class="form-signin-heading">Déposez une annonce</h2>
+        <h2 class="form-signin-heading">Déposer une annonce</h2>
         <div class="form-group">
-            <label for="inputTitle">Titre de votre annonce</label>
-            <input type="text" name="title" id="inputtitle" class="form-control" required autofocus>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "form-control" %>
         </div>
         <div class="form-group">
-            <label for="inputContent" >Description</label>
-            <input type="textarea" name="content" id="inputContent" class="form-control" required>
+            <%= f.label :content %>
+            <%= f.text_field :content, class: "form-control" %>
         </div>
         <div class="form-group">
-            <label for="inputPrice" >Prix de vente</label>
-            <input type="textarea" name="price" id="inputPrice" class="form-control" required>
+            <%= f.label :price %>
+            <%= f.text_field :price, class: "form-control" %>
         </div>
         <div class="form-group">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Soumettre l'annonce</button>
+            <%= f.hidden_field :published, value: false %>
+            <%= f.hidden_field :user_id, value: session[:user_id] %>
+        </div>
+        <div class="form-group">
+            <%= f.submit, class: "btn btn-lg btn-primary btn-block" %>
         </div>
       </form>
-<% end %>
+    <% end %>
     </div> <!-- /container -->
