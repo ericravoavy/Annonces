@@ -17,7 +17,7 @@
           <div class="card-footer <% if !@advertisement.published %> bg-danger <% else %> bg-default <% end %>">
               <div class="text-center">
               <% if !@advertisement.published %>
-                <%= form_tag "/advertisements/#{@advertisement.id}", method: "patch" do %>
+                <%= form_tag "/advertisements/publish/#{@advertisement.id}", method: "patch" do %>
                   <input type="hidden" name="published" value="true"/>
                   <input type="submit" value="Publier" class="btn btn-primary"/>
                 <% end %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/login' => 'users#login', as: 'login'
   post 'users/login' => 'users#check'
-  patch 'advertisements/:id' => 'advertisements#publish'
+  patch 'advertisements/publish/:id' => 'advertisements#publish'
   resources :users
   resources :advertisements do
     resources :comments
