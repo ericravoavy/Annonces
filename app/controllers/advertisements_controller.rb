@@ -39,7 +39,7 @@ class AdvertisementsController < ApplicationController
   def publish
     flash[:info] = "L'état de publication à été modifié"
     Advertisement.find(params[:id]).update published: params[:published]
-    redirect_to advertisement_path(params[:id])
+    redirect_to advertisement_path
   end
 
   def update
