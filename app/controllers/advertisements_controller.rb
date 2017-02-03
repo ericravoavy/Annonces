@@ -12,6 +12,14 @@ class AdvertisementsController < ApplicationController
   end
 
   def new
+    if session[:user_id].nil?
+      flash[:info] = "Vous devez être enregistré pour publier une annonce"
+      redirect_to login_path
+    else
+      @user = User.find(session[:user_id])
+      flash[:info] = "Bonjour #{@user.name}, qu'avez-vous à vendre ?"
+      render :new
+    end
   end
   
   def create
