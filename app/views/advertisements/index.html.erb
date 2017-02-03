@@ -21,7 +21,7 @@
         </div>
         <div class="card-footer bg-success">
             <% if !session[:admin].nil? %>
-              <div text-center>
+              <div class="text-center">
               <% if !advertisement.published %>
                 <%= form_tag "/advertisements/#{advertisement.id}", method: "patch" do %>
                   <input type="hidden" name="published" value="true"/>
