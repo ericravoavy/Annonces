@@ -31,7 +31,14 @@
         <div class="card-footer text-muted">
           <%= pluralize(advertisement.price, "euro") %>
           <% if !session[:admin].nil? && !advertisement.published %>
-            <%= link_to "Publier l'annonce", advertisement_path(advertisement, advertisement: {published: :true}), method: :patch, class: 'btn btn-primary float-right' %>
+            <%= form_for :advertisement, url: advertisements_path do |f| %>
+              <%= f.hidden_field :title, value: advertisement.title %>
+              <%= f.hidden_field :content, value: advertisement.content %>
+              <%= f.hidden_field :price, value: advertisement.price %>
+              <%= f.hidden_field :user_id, value: session[:user_id] %>
+              <%= f.hidden_field :published, value: true %>
+              <%= f.submit "Publier l'annonce", class: "btn btn-lg btn-primary float-right" %>
+            <% end %>
           <% end %>
         </div>
       </div>
