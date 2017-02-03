@@ -29,8 +29,8 @@
           
         </div>
         <div class="card-footer text-muted" style="display: inline-block;">
-          <p><%= pluralize(advertisement.price, "euro") %></p>
-          <p><% if !session[:admin].nil? && !advertisement.published %>
+          <div><%= pluralize(advertisement.price, "euro") %></div>
+          <div><% if !session[:admin].nil? && !advertisement.published %>
             <%= form_for :advertisement, url: advertisements_path do |f| %>
               <%= f.hidden_field :title, value: advertisement.title %>
               <%= f.hidden_field :content, value: advertisement.content %>
@@ -39,7 +39,7 @@
               <%= f.hidden_field :published, value: true %>
               <%= f.submit "Publier l'annonce", class: "btn btn-primary float-right" %>
             <% end %>
-            </p>
+            </div>
           <% end %>
         </div>
       </div>
