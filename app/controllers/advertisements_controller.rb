@@ -43,7 +43,14 @@ class AdvertisementsController < ApplicationController
   end
 
   def edit
-    @advertisement = Advertisement.find(params[:id]
+    @advertisement = Advertisement.find(params[:id])
+    if @advertisement.update adver_params
+      flash[:info] = "Annonce mise à jour correctement"
+      redirect_to advertisement_path
+    else
+      flash[:info] = "Annonce non mise à jour, un problème a été détécté"
+      render :edit
+    end
   end
 
   private
