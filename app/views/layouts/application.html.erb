@@ -32,19 +32,15 @@
         <% end %>
       </div>
     </nav>
+<% if !@advertisements.nil? %>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <% if !@advertisements.nil? %>
         <h1 class="display-3">Annonces disponibles</h1>
         <p class="lead">Consultez les annonces disponibles ou publiez-en une !</p>
-        <% else %>
-          <h1 class="display-3">Aucune annonce trouvée</h1>
-          <p class="lead">Inscrivez-vous et publiez-en une !</p>
-        <% end %>
         <%= link_to 'Poster une nouvelle annonce', new_advertisement_path, class: 'btn btn-primary' %>
       </div>
     </div>
-    
+<% end %>    
     <div class="container-fluid">
       <div class="container">
         <% if flash[:info] %>

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   post 'users/login' => 'users#check'
   patch 'advertisements/:id' => 'advertisements#publish'
   resources :users
-  resources :advertisements
+  resources :advertisements do
+    resources :comments
+  end
   post 'advertisements/new' => 'advertisements#new'
   root 'advertisements#index'
   get '*path' => redirect('/')

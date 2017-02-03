@@ -1,12 +1,13 @@
+<br>
 <div class="container">
     <div class="card text-center">
         <div class="card-header">
-             Annonce postée le <%= @advertisement.created_at.strftime("%d/%m/%Y") %>
+             Annonce soumise le <%= @advertisement.created_at.strftime("%d/%m/%Y") %>
         </div>
         <div class="card-block">
             <h4 class="card-title"><%= @advertisement.title %></h4>
             <p class="card-text"><%= @advertisement.content %></p>
-            <p class="card-text">Posté par <%= @advertisement.user.name %></p>
+            <p class="card-text">Proposée par <%= @advertisement.user.name %></p>
             <a href="<%= advertisements_path %>" class="btn btn-primary">Retour</a>
         </div>
         <div class="card-footer text-muted">
@@ -14,5 +15,35 @@
         </div>
     </div>
 </div>
+<br>
+<div class="container">
+  <h2>Commentaires</h2>
+  <% @advertisement.comments.each do |comment| %>
+  <div class="card">
+    <div class="card-header">
+      Commentaire de <%= comment.commenter %>  
+    </div>
+    <div class="card-block">
+      <p class="card-text"><%= comment.body %></p>
+    </div>
+  </div>
+  <br>
+  <% end %>
 
-<a href="#" class="btn btn-success">Laisser un commentaire</a>
+<% if !session[:user_id].nil? %>
+    <%= form_for([@advertisement, @advertisement.comments.build]) do |f| %>
+      <%= f.hidden_field :commenter, value: @user.name %>
+      <div class="card">
+         <div class="card-header">
+	    Ajoutez votre commentaire : 
+ 	 </div>
+         <div class="card-block">
+            <p class="card-text">
+              <%= f.text_area :body, class: "form-control" %>
+	      <%= f.submit "Commenter",  class: "btn btn-primary" %>
+            </p>
+	 </div>
+      </div>
+    <% end %>
+<% end %>
+</div>
