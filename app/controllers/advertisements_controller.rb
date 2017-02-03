@@ -44,6 +44,9 @@ class AdvertisementsController < ApplicationController
 
   def edit
     @advertisement = Advertisement.find(params[:id])
+  end
+
+  def update
     if @advertisement.update adver_params
       flash[:info] = "Annonce mise à jour correctement"
       redirect_to advertisement_path
