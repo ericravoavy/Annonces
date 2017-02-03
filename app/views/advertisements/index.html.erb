@@ -19,8 +19,8 @@
         <div class="card-footer text-muted">
           <div><%= pluralize(advertisement.price, "euro") %></div>
         </div>
-        <div class="card-footer <% if !advertisement.published %> bg-danger <% else %> bg-default <% end %>">
-            <% if !session[:admin].nil? %>
+          <% if !session[:admin].nil? %>
+          <div class="card-footer <% if !advertisement.published %> bg-danger <% else %> bg-default <% end %>">
               <div class="text-center">
               <% if !advertisement.published %>
                 <%= form_tag "/advertisements/#{advertisement.id}", method: "patch" do %>
@@ -34,8 +34,8 @@
                 <% end %>
               <% end %>
               </div>
+            </div>
             <% end %>
-        </div>
       </div>
     <% end %>
   </div>
