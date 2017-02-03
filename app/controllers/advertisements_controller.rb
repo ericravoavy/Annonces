@@ -34,6 +34,11 @@ class AdvertisementsController < ApplicationController
   end
 
   def publish
+    if params[:published] 
+      flash[:info] = "L'annonce est maintenant publiée"
+    else
+      flash[:info] = "L'annonce est maintenant hors ligne"
+    end
     Advertisement.find(params[:id]).update published: params[:published]
     redirect_to root_path
   end
