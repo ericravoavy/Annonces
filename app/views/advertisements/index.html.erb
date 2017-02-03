@@ -33,11 +33,6 @@
             <% if !session[:admin].nil? && !advertisement.published %>
               <div>
                 <%= form_tag "/advertisements/#{advertisement.id}", method: "patch" do %>
-                  <input type="hidden" name="advertisement" value="<%= advertisement %>"/>
-                  <input type="hidden" name="title" value="<%= advertisement.title %>"/>
-                  <input type="hidden" name="content" value="<%= advertisement.content %>"/>
-                  <input type="hidden" name="price" value="<%= advertisement.price %>"/>
-                  <input type="hidden" name="user_id" value="<%= session[:user_id] %>"/>
                   <input type="hidden" name="published" value="true"/>
                   <input type="submit" value="Publier" class="btn btn-primary"/>
                 <% end %>     

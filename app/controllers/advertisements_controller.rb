@@ -33,6 +33,11 @@ class AdvertisementsController < ApplicationController
     end
   end
 
+  def publish
+    Advertisement.find(params[:id]).update published: params[:published]
+    redirect_to root_path
+  end
+
   def update
     @advertisement = Advertisement.find(params[:id])
     if @advertisement.update adver_params
