@@ -1,4 +1,4 @@
-<% if session[:user_id] != advertisement.user_id %>
+<% if session[:user_id] != @advertisement.user_id %>
     <div class="container">
         <div class="alert alert-danger">
         Vous ne pouvez pas éditer une annonce qui ne vous appartient pas ! Désolé !</div>
