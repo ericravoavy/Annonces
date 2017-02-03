@@ -34,9 +34,9 @@ class AdvertisementsController < ApplicationController
   end
 
   def publish
-    if params[:published] === true
+    if params[:published].true
       flash[:info] = "L'annonce est maintenant publiée"
-    else
+    elsif params[:published].false
       flash[:info] = "L'annonce est maintenant hors ligne"
     end
     Advertisement.find(params[:id]).update published: params[:published]
