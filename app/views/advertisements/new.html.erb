@@ -1,5 +1,5 @@
 <div class="container">
-    <%= form_tag "/advertisements/new", method: :post do %>
+    <%= form_tag "/advertisements", method: :post do %>
     <input type="hidden" name="published" id="inputtitle" class="form-control" value="false">
     <input type="hidden" name="user_id" id="inputtitle" class="form-control" value="<%= session[:user_id]%>">
       <form class="form-signin">
