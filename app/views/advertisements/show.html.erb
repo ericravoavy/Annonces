@@ -38,7 +38,7 @@
   <% @advertisement.comments.each do |comment| %>
   <div class="card">
     <div class="card-header">
-      Commentaire de <%= comment.commenter %>, le <%= comment.created_at %>  
+      Commentaire de <%= comment.commenter %>, le <%= comment.created_at.strftime("%d/%m/%y - %R") %>  
     </div>
     <div class="card-block">
       <p class="card-text"><%= comment.body %></p>
