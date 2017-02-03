@@ -43,6 +43,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def edit
+    @advertisement = Advertisement.find(params[:id]
   end
 
   private
