@@ -19,9 +19,9 @@
         <div class="card-footer text-muted">
           <div><%= pluralize(advertisement.price, "euro") %></div>
         </div>
-        <div class="card-footer text-muted">
+        <div class="card-footer bg-success">
             <% if !session[:admin].nil? %>
-              <div>
+              <div text-center>
               <% if !advertisement.published %>
                 <%= form_tag "/advertisements/#{advertisement.id}", method: "patch" do %>
                   <input type="hidden" name="published" value="true"/>
