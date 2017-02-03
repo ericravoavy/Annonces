@@ -19,23 +19,7 @@
         <div class="card-footer text-muted">
           <div><%= pluralize(advertisement.price, "euro") %></div>
         </div>
-          <% if !session[:admin].nil? %>
-          <div class="card-footer <% if !advertisement.published %> bg-danger <% else %> bg-default <% end %>">
-              <div class="text-center">
-              <% if !advertisement.published %>
-                <%= form_tag "/advertisements/#{advertisement.id}", method: "patch" do %>
-                  <input type="hidden" name="published" value="true"/>
-                  <input type="submit" value="Publier" class="btn btn-primary"/>
-                <% end %>
-              <% else %>
-                <%= form_tag "/advertisements/#{advertisement.id}", method: "patch" do %>
-                  <input type="hidden" name="published" value="false"/>
-                  <input type="submit" value="Ne plus Publier" class="btn btn-default"/>
-                <% end %>
-              <% end %>
-              </div>
-            </div>
-            <% end %>
+          
       </div>
     <% end %>
   </div>
