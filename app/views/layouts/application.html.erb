@@ -36,7 +36,9 @@
     
     <div class="container-fluid" style="margin-top: 50px;">
       <div class="container">
-        <div class="alert alert-info"><%= flash[:info] %></div>
+        <% if flash[:info] %>
+          <div class="alert alert-info"><%= flash[:info] %></div>
+        <% end %>
       </div>
       <%= yield %>
     </div>
