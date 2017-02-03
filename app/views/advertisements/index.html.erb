@@ -28,7 +28,7 @@
           <% end %>
           
         </div>
-        <div class="card-footer text-muted">
+        <div class="card-footer text-muted inline-block">
           <%= pluralize(advertisement.price, "euro") %>
           <% if !session[:admin].nil? && !advertisement.published %>
             <%= form_for :advertisement, url: advertisements_path do |f| %>
