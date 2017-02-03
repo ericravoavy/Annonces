@@ -1,7 +1,8 @@
 <% if session[:user_id] != @advertisement.user_id && session[:admin].nil? %>
     <div class="container">
         <div class="alert alert-danger">
-        Vous ne pouvez pas éditer une annonce qui ne vous appartient pas ! Désolé !</div>
+            Vous ne pouvez pas éditer une annonce qui ne vous appartient pas ! Désolé !
+        </div>
     </div>
 <% else %>
     <div class="container">
@@ -25,6 +26,9 @@
                 <%= f.hidden_field :user_id, value: session[:user_id] %>
             </div>
             <div class="form-group">
+                <div class="alert alert-info">
+                    Attention, le fait d'éditer votre annonce lui retire son statut publié, l'administrateur devra l'approuver à nouveau. Merci
+                </div>
                 <%= f.submit "Editer l'annonce", class: "btn btn-lg btn-primary btn-block" %>
             </div>
         </form>
