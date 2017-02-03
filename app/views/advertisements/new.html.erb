@@ -1,7 +1,7 @@
 <div class="container">
     <%= form_tag "/advertisements/new", method: :post do %>
-    <%= f.hidden_field :published, value: false %>
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
+    <input type="hidden" name="published" id="inputtitle" class="form-control" value="false">
+    <input type="hidden" name="user_id" id="inputtitle" class="form-control" value="<%= session[:user_id]%>">
       <form class="form-signin">
         <h2 class="form-signin-heading">Déposez une annonce</h2>
         <div class="form-group">
