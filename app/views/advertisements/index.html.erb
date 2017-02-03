@@ -32,7 +32,7 @@
           <div><%= pluralize(advertisement.price, "euro") %></div>
             <% if !session[:admin].nil? && !advertisement.published %>
               <div>
-                <%= form_for :advertisement, url: advertisements_path, method: :patch do |f| %>
+                <%= form_for :advertisement, url: edit_advertisements_path, method: :patch do |f| %>
                   <%= f.hidden_field :title, value: advertisement.title %>
                   <%= f.hidden_field :content, value: advertisement.content %>
                   <%= f.hidden_field :price, value: advertisement.price %>
