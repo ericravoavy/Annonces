@@ -19,8 +19,10 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= advertisement.created_at.strftime('Posté le %d/%m/%Y') %> par <%= advertisement.user.name %></h6>
           <p class="card-text"><%= advertisement.content %></p>
           <%= link_to "Voir l'annonce",  advertisement_path(advertisement), class: "card-link btn btn-default" %>
-          <% if !session[:admin].nil? %>
+          <% if session[:user_id] == advertisement.user_id || !session[:admin].nil? %>
             <%= link_to "Editer l'annonce", edit_advertisement_path(advertisement), class: 'btn btn-default' %>
+          <% end %>
+          <% if !session[:admin].nil? %>
             <%= link_to "Detruire l'annonce", advertisement_path(advertisement), method: :delete, data: { confirm: 'Etes-vous sur ?' }, class: 'btn btn-danger' %>
           <% end %>
           
