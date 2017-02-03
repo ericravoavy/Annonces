@@ -5,7 +5,7 @@
         <div class="card-block">
           <h4 class="card-title"><%= advertisement.title %></h4>
           <h6 class="card-subtitle mb-2 text-muted"><%= advertisement.created_at.strftime('Posté le %d/%m/%Y') %> par <%= advertisement.user.name %></h6>
-          <p class="card-text"><%= advertisement.content %></p>
+          <p class="card-text"><%= truncate advertisement.content, lenght: 30 %></p>
           <%= link_to "Voir l'annonce",  advertisement_path(advertisement), class: "card-link btn btn-default" %>
           <% if session[:user_id] == advertisement.user_id && session[:admin].nil? %>
             <%= link_to "Editer l'annonce", edit_advertisement_path(advertisement), class: 'btn btn-default' %>
