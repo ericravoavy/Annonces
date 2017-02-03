@@ -32,16 +32,16 @@
           <div><%= pluralize(advertisement.price, "euro") %></div>
             <% if !session[:admin].nil? && !advertisement.published %>
               <div>
-                <%= form_for :advertisement, url: advertisements_path do |f| %>
-                  <%= f.hidden_field :title, value: advertisement.title %>
-                  <%= f.hidden_field :content, value: advertisement.content %>
-                  <%= f.hidden_field :price, value: advertisement.price %>
-                  <%= f.hidden_field :user_id, value: session[:user_id] %>
-                  <%= f.hidden_field :published, value: true %>
-                  <%= f.submit "Publier l'annonce", class: "btn btn-primary float-right" %>
+                <%= form_tag "/advertisement/#{advertisement.id}", method: "patch" do %>
+                  <input type="hidden" name="title" value="<%= advertisement.title %>"/>
+                  <input type="hidden" name="content" value="<%= advertisement.content %>"/>
+                  <input type="hidden" name="price" value="<%= advertisement.price %>"/>
+                  <input type="hidden" name="user_id" value="<%= session[:user_id] %>"/>
+                  <input type="hidden" name="published" value="true"/>
+                  <input type="submit" value="Publier" class="btn btn-primary"/>
+                <% end %>     
               </div>
             <% end %>
-          <% end %>
         </div>
       </div>
     <% end %>
