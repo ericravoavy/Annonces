@@ -1,27 +1,24 @@
 <div class="container">
- <div><%= flash[:info] %></div>
-    <%= form_for :advertisement, url: advertisements_path do |f| %>
+    <%= form_tag "/advertisements/new", method: :post do %>
+    <%= f.hidden_field :published, value: false %>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
       <form class="form-signin">
-        <h2 class="form-signin-heading">Déposer une annonce</h2>
+        <h2 class="form-signin-heading">Déposez une annonce</h2>
         <div class="form-group">
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+            <label for="inputTitle">Titre de votre annonce</label>
+            <input type="text" name="title" id="inputtitle" class="form-control" required autofocus>
         </div>
         <div class="form-group">
-            <%= f.label :content %>
-            <%= f.text_field :content %>
+            <label for="inputContent" >Description</label>
+            <input type="textarea" name="content" id="inputContent" class="form-control" required>
         </div>
         <div class="form-group">
-            <%= f.label :price %>
-            <%= f.text_field :price %>
+            <label for="inputPrice" >Prix de vente</label>
+            <input type="textarea" name="price" id="inputPrice" class="form-control" required>
         </div>
         <div class="form-group">
-            <%= f.hidden_field :published, value: false %>
-            <%= f.hidden_field :user_id, value: session[:user_id] %>
-        </div>
-        <div class="form-group">
-            <%= f.submit %>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">S'identifier</button>
         </div>
       </form>
-    <% end %>
+<% end %>
     </div> <!-- /container -->
